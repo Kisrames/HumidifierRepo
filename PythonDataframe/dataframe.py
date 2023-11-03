@@ -70,7 +70,9 @@ with right_column:
 
 st.markdown("---")
 
-# SALES BY PRODUCT LINE [BAR CHART]
+
+
+# SALES BY PRODUCT LINE  [BAR CHART]
 sales_by_product_line = dataframe_selection.groupby(by=["Product line"])[["Total"]].sum().sort_values(by="Total")
 fig_product_sales = px.bar(
     sales_by_product_line,
@@ -118,7 +120,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-
+# test comment
 
 
 
