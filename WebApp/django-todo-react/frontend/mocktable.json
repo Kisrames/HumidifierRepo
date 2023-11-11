@@ -1,0 +1,58 @@
+[
+ {
+   "time": "10:01",
+   "api": 1,
+   "moisture": 80.2,
+   "CO2": 986,
+   "temperature": 26.1
+ },
+ {
+   "time": "10:02",
+   "api": 5,
+   "moisture": 72.3,
+   "CO2": 934,
+   "temperature": 17.2
+ },
+ {
+   "time": "10:03",
+   "api": 4,
+   "moisture": 87.7,
+   "CO2": 976,
+   "temperature": 13.6
+ },
+ {
+   "time": "10:04",
+   "api": 5,
+   "moisture": 93.2,
+   "CO2": 892,
+   "temperature": 23.8
+ },
+ {
+   "time": "10:05",
+   "api": 2,
+   "moisture": 85.2,
+   "CO2": 996,
+   "temperature": 22.1
+ },
+ {
+   "time": "10:06",
+   "api": 3,
+   "moisture": 98.9,
+   "CO2": 892,
+   "temperature": 12.6
+ },
+ {
+   "time": "10:07",
+   "api": 3,
+   "moisture": 72.9,
+   "CO2": 974,
+   "temperature": 27.8
+ },
+ {
+   "time": "10:08",
+   "api": 1,
+   "moisture": 68.4,
+   "CO2": 955,
+   "temperature": 19.6
+ }
+]
