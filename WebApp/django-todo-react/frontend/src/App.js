@@ -1,8 +1,18 @@
 // App.js
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import "./App.css";
 //import rawdata from './mocktable.json'
-var data2 = []
+var data2 = [];
 
 // fetch('/mocktable')
 //     .then(function(resp) {
@@ -12,7 +22,7 @@ var data2 = []
 //         data2 = data;
 //     })
 
-data2 = require('./mocktable.json');
+data2 = require("./mocktable.json");
 // var data1 = [
 //   {
 //     "time": "10:01",
@@ -71,31 +81,45 @@ data2 = require('./mocktable.json');
 //     "temperature": 19.6
 //   }
 //  ]
+
 function App() {
   return (
-    <ResponsiveContainer width="100%" aspect={3}>
-        <LineChart
-          width={500}
-          height={300}
-          data={data2}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="time" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="api" stroke="#8884d8" activeDot={{ r: 8 }} /> 
-          <Line type="monotone" dataKey="moisture" stroke="#82ca9d" />
-          {/* <Line type="monotone" dataKey="CO2" stroke="#82ca9d" />
-          <Line type="monotone" dataKey="Temp" stroke="#82ca9d" />  */}
-        </LineChart>
-      </ResponsiveContainer>
+    <div className="grid">
+      <header id="header1">Humidifier WebApp</header>
+      <main>
+        <div id="chart1">
+          <ResponsiveContainer width="100%" aspect={3}>
+            <LineChart
+              width={500}
+              height={300}
+              data={data2}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="time" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line
+                type="monotone"
+                dataKey="api"
+                stroke="#8884d8"
+                activeDot={{ r: 8 }}
+              />
+              <Line type="monotone" dataKey="moisture" stroke="#82ca9d" />
+              <Line type="monotone" dataKey="CO2" stroke="#808080" />
+              <Line type="monotone" dataKey="temperature" stroke="#FF0000" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </main>
+      <footer id="footer1">Project of Kish, Timmy, James</footer>
+    </div>
   );
 }
 
