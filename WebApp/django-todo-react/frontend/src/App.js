@@ -1,31 +1,102 @@
 // App.js
-import React, { useEffect, useState } from 'react';
-import Sidebar from './Sidebar';
-import Graph from './Graph';
-import './App.css';
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+//import rawdata from './mocktable.json'
+var data2 = []
 
-const App = () => {
-  const [jsonData, setJsonData] = useState([]);
+// fetch('/mocktable')
+//     .then(function(resp) {
+//         return resp.json();
+//     })
+//     .then(function(data) {
+//         data2 = data;
+//     })
 
-  useEffect(() => {
-    // Fetch the JSON data
-    fetch('./mockable.json') // Update the path to the actual location of your JSON file
-      .then((response) => response.json())
-      .then((data) => setJsonData(data))
-      .catch((error) => console.error('Error fetching JSON:', error));
-  }, []);
-
+data2 = require('./mocktable.json');
+// var data1 = [
+//   {
+//     "time": "10:01",
+//     "api": 1,
+//     "moisture": 80.2,
+//     "CO2": 986,
+//     "temperature": 26.1
+//   },
+//   {
+//     "time": "10:02",
+//     "api": 5,
+//     "moisture": 72.3,
+//     "CO2": 934,
+//     "temperature": 17.2
+//   },
+//   {
+//     "time": "10:03",
+//     "api": 4,
+//     "moisture": 87.7,
+//     "CO2": 976,
+//     "temperature": 13.6
+//   },
+//   {
+//     "time": "10:04",
+//     "api": 5,
+//     "moisture": 93.2,
+//     "CO2": 892,
+//     "temperature": 23.8
+//   },
+//   {
+//     "time": "10:05",
+//     "api": 2,
+//     "moisture": 85.2,
+//     "CO2": 996,
+//     "temperature": 22.1
+//   },
+//   {
+//     "time": "10:06",
+//     "api": 3,
+//     "moisture": 98.9,
+//     "CO2": 892,
+//     "temperature": 12.6
+//   },
+//   {
+//     "time": "10:07",
+//     "api": 3,
+//     "moisture": 72.9,
+//     "CO2": 974,
+//     "temperature": 27.8
+//   },
+//   {
+//     "time": "10:08",
+//     "api": 1,
+//     "moisture": 68.4,
+//     "CO2": 955,
+//     "temperature": 19.6
+//   }
+//  ]
+function App() {
   return (
-    <div className="app">
-      <Sidebar />
-      <div className="content">
-        <Graph data={jsonData.map(entry => ({ time: entry.time, value: entry.moisture }))} title="Moisture" />
-        <Graph data={jsonData.map(entry => ({ time: entry.time, value: entry.CO2 }))} title="CO2 Level" />
-        <Graph data={jsonData.map(entry => ({ time: entry.time, value: entry.temperature }))} title="Temperature" />
-        {/* Add one more graph for another metric if needed */}
-      </div>
-    </div>
+    <ResponsiveContainer width="100%" aspect={3}>
+        <LineChart
+          width={500}
+          height={300}
+          data={data2}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="time" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="api" stroke="#8884d8" activeDot={{ r: 8 }} /> 
+          <Line type="monotone" dataKey="moisture" stroke="#82ca9d" />
+          {/* <Line type="monotone" dataKey="CO2" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Temp" stroke="#82ca9d" />  */}
+        </LineChart>
+      </ResponsiveContainer>
   );
-};
+}
 
 export default App;
